@@ -1,5 +1,7 @@
 using System;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+
 
 namespace happyBirthday
 {
@@ -11,6 +13,8 @@ namespace happyBirthday
             options.AddArguments("--disable-gpu");
 
             var chromeDriver = new ChromeDriver(options);
+
+
 
             //go to site
             chromeDriver.Navigate().GoToUrl("https://www.instagram.com/accounts/login/?source=auth_switcher");
@@ -26,7 +30,7 @@ namespace happyBirthday
             chromeDriver.FindElementByClassName("HoLwm").Click();
 
             //search for items here
-            chromeDriver.FindElementByClassName("XTCLo").SendKeys("#dogsofinstagram");
+            chromeDriver.FindElementByClassName("XTCLo").SendKeys("#dogs");
 
             //click on hashtag you searched for
             chromeDriver.FindElementByClassName("z556c").Click();
@@ -50,14 +54,25 @@ namespace happyBirthday
             Console.WriteLine("Bio: " + bio);
 
 
-            //int test = Int32.Parse(followers);
-            //Console.WriteLine("test: " + test);
+            
+            //string of comments to post to pictures
+            string[] comments = { "adorable!", "you're so cute", "awesome pic =)", "OMG", "WOW", "you look so happy", "awwwwww, so cute" };
 
-            //click first photo on users page and comment
+
+            // Create a Random object to generate a random comments from the string array  
+            Random rand = new Random();
+
+            int index = rand.Next(comments.Length);
+
+            
+
+            //click first photo on users page and comment / submit comment
             chromeDriver.FindElementByClassName("_9AhH0").Click();
-            chromeDriver.FindElementByClassName("RxpZH").SendKeys(name + "you're so cute!");
-            chromeDriver.FindElementByClassName("X7cDz").Click();
+                chromeDriver.FindElementByClassName("Ypffh").Click();
+                chromeDriver.FindElementByClassName("Ypffh").SendKeys("@" + name + " " + comments[index]);
+                chromeDriver.FindElementByClassName("Ypffh").Submit();
 
+            
 
 
 
