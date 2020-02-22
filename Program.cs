@@ -22,15 +22,15 @@ namespace happyBirthday
             chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //login
-            chromeDriver.FindElementByName("username").SendKeys("//username//");
-            chromeDriver.FindElementByName("password").SendKeys("//password//");
+            chromeDriver.FindElementByName("username").SendKeys("charliethegooddoge");
+            chromeDriver.FindElementByName("password").SendKeys("magnetpaper");
 
             //exit notifications pop up on login
             chromeDriver.FindElementByClassName("DhRcB").Click();
             chromeDriver.FindElementByClassName("HoLwm").Click();
 
             //search for items here
-            chromeDriver.FindElementByClassName("XTCLo").SendKeys("#goldendoodle");
+            chromeDriver.FindElementByClassName("XTCLo").SendKeys("#dog");
 
             //click on hashtag you searched for
             chromeDriver.FindElementByClassName("z556c").Click();
@@ -82,7 +82,7 @@ namespace happyBirthday
 
 
 
-                
+
             //loop through photos under the hastag you specify after 1st one is clicked
             for (var i = 0; i < 15; i++)
             {
@@ -99,12 +99,13 @@ namespace happyBirthday
                 //send comment
                 chromeDriver.FindElementByClassName("Ypffh").SendKeys("@" + name + " " + comments[indexOne]);
                 //wait for page to load
-                chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
-
+                //chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000000000);
+                System.Threading.Thread.Sleep(5000);
                 //push button to post
                 chromeDriver.FindElementByClassName("Ypffh").Submit();
                 //wait for page to load
-                chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(500);
+                System.Threading.Thread.Sleep(1000);
+                //chromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000000000);
 
             }
             
