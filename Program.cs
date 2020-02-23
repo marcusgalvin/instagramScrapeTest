@@ -45,7 +45,7 @@ namespace happyBirthday
 
 
 
-            //insta bios
+            //insta bios and capture
             //gather user's information and print to console
             string name = chromeDriver.FindElementByClassName("_7UhW9").Text;
             Console.WriteLine("Name: " + name);
